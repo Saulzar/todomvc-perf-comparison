@@ -223,12 +223,16 @@ var Suites = [];
 //     ]
 // });
 
+
+
 Suites.push({
-    name: 'Elm',
-    url: 'todomvc/elm/index.html',
-    version: '0.12.3 + virtual-dom 0.8',
+    name: 'Reflex',
+    url: 'todomvc/reflex/index.html',
+    version: '0.1',
     prepare: function (runner, contentWindow, contentDocument) {
+        print ("prepare")
         return runner.waitForElement('#new-todo').then(function (element) {
+            print ("focus")
             element.focus();
             return element;
         });
@@ -260,15 +264,12 @@ Suites.push({
     ]
 });
 
-
 Suites.push({
-    name: 'Reflex',
-    url: 'todomvc/reflex/index.html',
-    version: '0.1',
+    name: 'Elm',
+    url: 'todomvc/elm/index.html',
+    version: '0.12.3 + virtual-dom 0.8',
     prepare: function (runner, contentWindow, contentDocument) {
-        print ("prepare")
         return runner.waitForElement('#new-todo').then(function (element) {
-            print ("focus")
             element.focus();
             return element;
         });
