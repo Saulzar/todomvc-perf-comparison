@@ -6188,7 +6188,15 @@ function h$gc(t) {
     // throw an exception to a thread (which brings it back
     // to life), then scan it. Killing one thread might be enough
     // since the killed thread could make other threads reachable again.
-    h$finalizeMVars();
+    var killedThread;
+    while(killedThread = h$finalizeMVars()) {
+        h$markThread(killedThread);
+        h$markRetained();
+    }
+    // mark all blocked threads
+    iter = h$blocked.iter();
+    while((nt = iter.next()) !== null) h$markThread(nt);
+    // and their weak references etc
     h$markRetained();
     // now everything has been marked, bring out your dead references
     // run finalizers for all weak references with unreachable keys
@@ -6402,28 +6410,21 @@ function h$resetThread(t) {
     }
     ;
 }
+// throw blocked indefinitely exception to the first thread waiting on an unreferenced MVar
 function h$finalizeMVars() {
     ;
-    var kill, i, t, iter;
-    do {
- kill = null;
- iter = h$blocked.iter();
- while((t = iter.next()) !== null) {
-            if(t.status === h$threadBlocked && t.blockedOn instanceof h$MVar) {
-  // if h$unboxFFIResult is the top of the stack, then we cannot kill
-  // the thread since it's waiting for async FFI
-  if(t.blockedOn.m !== h$gcMark && t.stack[t.sp] !== h$unboxFFIResult) {
-      kill = t;
-  } else {
-      h$markThread(t);
-  }
-     }
+    var i, t, iter = h$blocked.iter();
+    while((t = iter.next()) !== null) {
+        if(t.status === h$threadBlocked && t.blockedOn instanceof h$MVar) {
+            // if h$unboxFFIResult is the top of the stack, then we cannot kill
+            // the thread since it's waiting for async FFI
+            if(t.blockedOn.m !== h$gcMark && t.stack[t.sp] !== h$unboxFFIResult) {
+                h$killThread(t, h$ghcjszmprimZCGHCJSziPrimziInternalziblockedIndefinitelyOnMVar);
+                return t;
+            }
         }
- if(kill && kill.blockedOn.m !== h$gcMark) {
-     h$killThread(kill, h$ghcjszmprimZCGHCJSziPrimziInternalziblockedIndefinitelyOnMVar);
-     h$markThread(kill);
- }
-    } while(kill);
+    }
+    return null;
 }
 // clear DOM retainers
 function h$finalizeDom() {
