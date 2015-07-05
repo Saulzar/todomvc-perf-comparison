@@ -10,7 +10,7 @@ ghcjs_31RFX0RxfG47uVLVB3mtzF:1852
 ghcjs_5r8RUtA03gOJUcKsU0E44h:9810
 ghcjs_9fjWKlsJKuYEBP9Qqyqlb7:97410
 integer-gmp:             17295
-main:                    427112
+main:                    427140
 refle_0BIuoxSfPHo2InlLfrCB6C:364934
 refle_AYEX6Ar9f985KiPMrd06RO:231353
 semig_JSHI554jABrEtUHJAGCTru:1210
@@ -119,7 +119,7 @@ integer-gmp
     GHC.Integer.Type:                   16962
 
 main
-    Main:                               427112
+    Main:                               427140
 
 refle_0BIuoxSfPHo2InlLfrCB6C
     Control.Monad.Ref:                  1790
@@ -159,5 +159,5 @@ trans_CXhxezj7kcZ0MhCwmUPdeJ
 
 
 
-packed metadata: 314823
+packed metadata: 314982
 

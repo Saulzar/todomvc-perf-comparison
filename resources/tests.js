@@ -230,9 +230,7 @@ Suites.push({
     url: 'todomvc/reflex/index.html',
     version: '0.1',
     prepare: function (runner, contentWindow, contentDocument) {
-        print ("prepare")
         return runner.waitForElement('#new-todo').then(function (element) {
-            print ("focus")
             element.focus();
             return element;
         });
