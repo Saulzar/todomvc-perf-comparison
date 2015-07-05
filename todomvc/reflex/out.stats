@@ -1,6 +1,6 @@
 code size summary per package:
 
-base:                    338587
+base:                    364844
 bytes_8PlbgTBl2AdCX6IiL3zrVH:1064
 conta_00sTk2s72TUE2usO3Wl3LK:163967
 depen_3Z16lOvHM9LIDimpAI19E9:1992
@@ -10,7 +10,7 @@ ghcjs_31RFX0RxfG47uVLVB3mtzF:1852
 ghcjs_5r8RUtA03gOJUcKsU0E44h:9810
 ghcjs_9fjWKlsJKuYEBP9Qqyqlb7:97410
 integer-gmp:             17295
-main:                    427140
+main:                    429701
 refle_0BIuoxSfPHo2InlLfrCB6C:364934
 refle_AYEX6Ar9f985KiPMrd06RO:231353
 semig_JSHI554jABrEtUHJAGCTru:1210
@@ -41,21 +41,23 @@ base
     GHC.Err:                            218
     GHC.Exception:                      7240
     GHC.Foreign:                        12274
-    GHC.ForeignPtr:                     1265
+    GHC.ForeignPtr:                     1501
     GHC.IO:                             3973
     GHC.IO.Buffer:                      1276
     GHC.IO.BufferedIO:                  864
     GHC.IO.Device:                      1297
     GHC.IO.Encoding:                    1030
     GHC.IO.Encoding.Failure:            724
+    GHC.IO.Encoding.Latin1:             1863
     GHC.IO.Encoding.Types:              1032
     GHC.IO.Encoding.UTF8:               61387
     GHC.IO.Exception:                   17512
     GHC.IO.FD:                          38128
     GHC.IO.Handle:                      477
     GHC.IO.Handle.FD:                   6665
-    GHC.IO.Handle.Internals:            27421
-    GHC.IO.Handle.Types:                3571
+    GHC.IO.Handle.Internals:            35261
+    GHC.IO.Handle.Text:                 16055
+    GHC.IO.Handle.Types:                3834
     GHC.IORef:                          166
     GHC.Int:                            802
     GHC.List:                           5106
@@ -119,7 +121,7 @@ integer-gmp
     GHC.Integer.Type:                   16962
 
 main
-    Main:                               427140
+    Main:                               429701
 
 refle_0BIuoxSfPHo2InlLfrCB6C
     Control.Monad.Ref:                  1790
@@ -159,5 +161,5 @@ trans_CXhxezj7kcZ0MhCwmUPdeJ
 
 
 
-packed metadata: 314982
+packed metadata: 317621
 
