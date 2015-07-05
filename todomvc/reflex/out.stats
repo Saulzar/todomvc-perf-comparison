@@ -1,6 +1,6 @@
 code size summary per package:
 
-base:                    364844
+base:                    365155
 bytes_8PlbgTBl2AdCX6IiL3zrVH:1064
 conta_00sTk2s72TUE2usO3Wl3LK:163967
 depen_3Z16lOvHM9LIDimpAI19E9:1992
@@ -10,7 +10,7 @@ ghcjs_31RFX0RxfG47uVLVB3mtzF:1852
 ghcjs_5r8RUtA03gOJUcKsU0E44h:9810
 ghcjs_9fjWKlsJKuYEBP9Qqyqlb7:97410
 integer-gmp:             17295
-main:                    433485
+main:                    383232
 refle_0BIuoxSfPHo2InlLfrCB6C:365977
 refle_AYEX6Ar9f985KiPMrd06RO:231353
 semig_JSHI554jABrEtUHJAGCTru:1210
@@ -67,7 +67,7 @@ base
     GHC.Real:                           11421
     GHC.ST:                             186
     GHC.STRef:                          648
-    GHC.Show:                           15476
+    GHC.Show:                           15787
     GHC.Storable:                       1084
     GHC.TopHandler:                     10470
     GHC.Weak:                           188
@@ -121,7 +121,7 @@ integer-gmp
     GHC.Integer.Type:                   16962
 
 main
-    Main:                               433485
+    Main:                               383232
 
 refle_0BIuoxSfPHo2InlLfrCB6C
     Control.Monad.Ref:                  1790
@@ -161,5 +161,5 @@ trans_CXhxezj7kcZ0MhCwmUPdeJ
 
 
 
-packed metadata: 318187
+packed metadata: 316610
 
