@@ -2,7 +2,7 @@ code size summary per package:
 
 base:                    365155
 bytes_8PlbgTBl2AdCX6IiL3zrVH:1064
-conta_00sTk2s72TUE2usO3Wl3LK:163967
+conta_00sTk2s72TUE2usO3Wl3LK:168672
 depen_3Z16lOvHM9LIDimpAI19E9:1992
 depen_EXdxw3SegwZH4MRKsSKZTL:48414
 ghc-prim:                17845
@@ -10,7 +10,7 @@ ghcjs_31RFX0RxfG47uVLVB3mtzF:1852
 ghcjs_5r8RUtA03gOJUcKsU0E44h:9810
 ghcjs_9fjWKlsJKuYEBP9Qqyqlb7:97410
 integer-gmp:             17295
-main:                    383232
+main:                    386981
 refle_0BIuoxSfPHo2InlLfrCB6C:365977
 refle_AYEX6Ar9f985KiPMrd06RO:231353
 semig_JSHI554jABrEtUHJAGCTru:1210
@@ -80,7 +80,7 @@ bytes_8PlbgTBl2AdCX6IiL3zrVH
 
 conta_00sTk2s72TUE2usO3Wl3LK
     Data.IntMap.Base:                   11332
-    Data.Map.Base:                      98457
+    Data.Map.Base:                      103162
     Data.Set.Base:                      54178
 
 depen_3Z16lOvHM9LIDimpAI19E9
@@ -121,7 +121,7 @@ integer-gmp
     GHC.Integer.Type:                   16962
 
 main
-    Main:                               383232
+    Main:                               386981
 
 refle_0BIuoxSfPHo2InlLfrCB6C
     Control.Monad.Ref:                  1790
@@ -161,5 +161,5 @@ trans_CXhxezj7kcZ0MhCwmUPdeJ
 
 
 
-packed metadata: 316610
+packed metadata: 317400
 
