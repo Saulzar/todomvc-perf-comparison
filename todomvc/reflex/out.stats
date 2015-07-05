@@ -10,8 +10,8 @@ ghcjs_31RFX0RxfG47uVLVB3mtzF:1852
 ghcjs_5r8RUtA03gOJUcKsU0E44h:9810
 ghcjs_9fjWKlsJKuYEBP9Qqyqlb7:97410
 integer-gmp:             17295
-main:                    429701
-refle_0BIuoxSfPHo2InlLfrCB6C:364934
+main:                    433485
+refle_0BIuoxSfPHo2InlLfrCB6C:365977
 refle_AYEX6Ar9f985KiPMrd06RO:231353
 semig_JSHI554jABrEtUHJAGCTru:1210
 text_3UDLLhKniGD5EGWaNmQbLh:30524
@@ -121,13 +121,13 @@ integer-gmp
     GHC.Integer.Type:                   16962
 
 main
-    Main:                               429701
+    Main:                               433485
 
 refle_0BIuoxSfPHo2InlLfrCB6C
     Control.Monad.Ref:                  1790
     Data.Functor.Misc:                  3995
     Reflex.Class:                       25457
-    Reflex.Dynamic:                     33589
+    Reflex.Dynamic:                     34632
     Reflex.Host.Class:                  830
     Reflex.Spider.Internal:             299273
 
@@ -161,5 +161,5 @@ trans_CXhxezj7kcZ0MhCwmUPdeJ
 
 
 
-packed metadata: 317621
+packed metadata: 318187
 
