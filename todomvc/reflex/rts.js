@@ -1384,7 +1384,7 @@ var h$isJsShell = false; // runtime is SpiderMonkey jsshell
 var h$isJsCore = false; // runtime is JavaScriptCore jsc
 var h$isBrowser = false; // running in browser or everything else
 // load all required node.js modules
-if(typeof process !== undefined && (typeof h$TH !== 'undefined' || (typeof require !== 'undefined' && typeof module !== 'undefined' && module.exports))) {
+if(typeof process !== 'undefined' && (typeof h$TH !== 'undefined' || (typeof require !== 'undefined' && typeof module !== 'undefined' && module.exports))) {
     h$isNode = true;
     // we have to use these names for the closure compiler externs to work
     var fs = require('fs');
@@ -6188,15 +6188,7 @@ function h$gc(t) {
     // throw an exception to a thread (which brings it back
     // to life), then scan it. Killing one thread might be enough
     // since the killed thread could make other threads reachable again.
-    var killedThread;
-    while(killedThread = h$finalizeMVars()) {
-        h$markThread(killedThread);
-        h$markRetained();
-    }
-    // mark all blocked threads
-    iter = h$blocked.iter();
-    while((nt = iter.next()) !== null) h$markThread(nt);
-    // and their weak references etc
+    h$finalizeMVars();
     h$markRetained();
     // now everything has been marked, bring out your dead references
     // run finalizers for all weak references with unreachable keys
@@ -6410,21 +6402,28 @@ function h$resetThread(t) {
     }
     ;
 }
-// throw blocked indefinitely exception to the first thread waiting on an unreferenced MVar
 function h$finalizeMVars() {
     ;
-    var i, t, iter = h$blocked.iter();
-    while((t = iter.next()) !== null) {
-        if(t.status === h$threadBlocked && t.blockedOn instanceof h$MVar) {
-            // if h$unboxFFIResult is the top of the stack, then we cannot kill
-            // the thread since it's waiting for async FFI
-            if(t.blockedOn.m !== h$gcMark && t.stack[t.sp] !== h$unboxFFIResult) {
-                h$killThread(t, h$ghcjszmprimZCGHCJSziPrimziInternalziblockedIndefinitelyOnMVar);
-                return t;
-            }
+    var kill, i, t, iter;
+    do {
+ kill = null;
+ iter = h$blocked.iter();
+ while((t = iter.next()) !== null) {
+            if(t.status === h$threadBlocked && t.blockedOn instanceof h$MVar) {
+  // if h$unboxFFIResult is the top of the stack, then we cannot kill
+  // the thread since it's waiting for async FFI
+  if(t.blockedOn.m !== h$gcMark && t.stack[t.sp] !== h$unboxFFIResult) {
+      kill = t;
+  } else {
+      h$markThread(t);
+  }
+     }
         }
-    }
-    return null;
+ if(kill && kill.blockedOn.m !== h$gcMark) {
+     h$killThread(kill, h$ghcjszmprimZCGHCJSziPrimziInternalziblockedIndefinitelyOnMVar);
+     h$markThread(kill);
+ }
+    } while(kill);
 }
 // clear DOM retainers
 function h$finalizeDom() {
